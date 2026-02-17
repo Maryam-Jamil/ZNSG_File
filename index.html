@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>ZNSG Logistics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap 5.0.2 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* ================= HEADER ================= */
+    .main-section {
+      overflow-x: hidden;
+    }
+
+    .main-header {
+      position: absolute;
+      width: 100%;
+      top: 20px;
+      z-index: 999;
+    }
+
+    .custom-navbar {
+      background: #ffffff;
+      border-radius: 50px;
+      padding: 15px 30px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    /* .navbar-brand {
+  font-size: 28px;
+  letter-spacing: 2px;
+} */
+
+    .nav-link {
+      font-weight: 500;
+      color: #000 !important;
+      padding-bottom: 0px;
+      padding-top: 5px;
+    }
+
+    .nav-link.active {
+      font-weight: 600;
+    }
+
+    .header-right .phone {
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero-section {
+      height: 100vh;
+      background: url("./images/Group\ 49.png") no-repeat center center/cover;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-section .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+    }
+
+    .hero-section .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-title {
+      font-size: 75px;
+      font-weight: 600;
+      line-height: 1;
+      color: #fff;
+    }
+
+    .hero-text p {
+      color: #fff;
+      font-size: 28px;
+      line-height: 1.2;
+      font-weight: 500;
+      letter-spacing: 1px;
+      width: 675px;
+    }
+
+    .center-align {
+      align-items: center;
+    }
+
+    /* ================= FLOATING BUTTON ================= */
+
+    .view-services-btn {
+      background: #fff;
+      color: #000;
+      padding: 9px 15px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      z-index: 3;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      transition: 0.3s;
+      margin-left: auto;
+      font-size: 14px;
+      border: none;
+    }
+
+    .view-services-btn span {
+      background: #000;
+      color: #fff;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: rotateZ(320deg);
+    }
+
+    .view-services-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .logo_img img {
+      width: 100px;
+    }
+
+    /* vertical line between logo and menu */
+    .nav-divider {
+      width: 1px;
+      height: 35px;
+      background: #dcdcdc;
+      margin: 0 30px;
+    }
+
+    .custom-container {
+      width: 85%;
+      margin: auto;
+    }
+
+    /* separator under hero heading */
+    .hero-separator {
+      width: 100%;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.7);
+      margin: 20px auto 60px auto;
+    }
+
+    .hero-para {
+      position: absolute;
+      bottom: 3rem;
+      width: 100%;
+    }
+
+    /* ================= ABOUT SECTION ================= */
+
+    /* .about-wrapper {
+  background: transparent;
+  margin-top: -80px;
+  position: relative;
+  z-index: 5;
+}  */
+
+    /* actual white container */
+    .about-section {
+      background: #ffffff;
+      padding: 100px 0;
+      border-top-left-radius: 50px;
+      border-top-right-radius: 50px;
+      overflow: hidden;
+    }
+
+    /* pill */
+    .about-badge {
+      display: inline-block;
+      padding: 6px 18px;
+      border: 1px solid #e0e0e0;
+      border-radius: 30px;
+      font-size: 13px;
+      margin-bottom: 20px;
+      color: #222;
+    }
+
+    /* heading */
+    .about-title {
+      font-size: 42px;
+      font-weight: 600;
+      line-height: 1.25;
+      color: #111;
+      max-width: 750px;
+    }
+
+    /* large image */
+    .about-image {
+      border-radius: 30px;
+      overflow: hidden;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* stat cards */
+    .about-card {
+      background: #f7f7f7;
+      border-radius: 24px;
+      padding: 35px 30px;
+      height: 350px;
+      position: relative;
+    }
+
+    .card-label {
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: #000;
+      display: block;
+      margin-bottom: 30px;
+    }
+
+    .about-card .card-label::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      background: #ececec;
+      margin-top: 12px;
+    }
+
+    .about-card h3 {
+      font-size: 36px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .about-card h3 span {
+      font-size: 20px;
+      position: absolute;
+      color: #a7a4a4;
+    }
+
+    .about-card p {
+      margin: 0;
+      color: #666;
+      font-size: 14px;
+    }
+
+    /* small image card */
+    .about-image-sm {
+      border-radius: 24px;
+      overflow: hidden;
+      height: 100%;
+    }
+
+    .about-image-sm img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-no {
+      position: absolute;
+      bottom: 1.5rem;
+    }
+
+    /* ================= CONTACT SECTION ================= */
+
+    .contact-bg {
+      background: url("./images/Mask\ Group\ 9.png") center/cover no-repeat;
+      padding: 80px 0 80px;
+
+    }
+
+    /* .contact-overlay {
+  background: rgba(255,255,255,0.05);
+} */
+
+    .contact-box {
+      background: #ffffff;
+      border-radius: 40px;
+      padding: 70px 120px;
+      max-width: 1145px;
+      margin: auto;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+      text-align: center;
+    }
+
+    /* badge */
+    .contact-badge {
+      display: inline-block;
+      padding: 6px 18px;
+      border: 1px solid #ddd;
+      border-radius: 25px;
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+
+    /* title */
+    .contact-title {
+      font-size: 36px;
+      font-weight: 600;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    /* inputs */
+    .contact-form .form-control {
+      border-radius: 30px;
+      padding: 14px 22px;
+      border: 1px solid #eee;
+      font-size: 14px;
+    }
+
+    .contact-form textarea.form-control {
+      border-radius: 22px;
+      resize: none;
+    }
+
+    /* bottom */
+    .contact-bottom {
+      margin-top: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .contact-bottom p {
+      margin: 0;
+      font-size: 14px;
+      color: #888;
+      text-align: justify;
+    }
+
+    /* send button */
+    .send-btn {
+      background: #000;
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 40px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+    }
+
+    .send-btn span {
+      width: 32px;
+      height: 32px;
+      background: #fff;
+      color: #000;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: rotateZ(320deg);
+    }
+
+    /* ================= FOOTER ================= */
+
+    .site-footer {
+      background: #ececec;
+      padding: 70px 0 30px;
+      margin-top: 5rem;
+    }
+
+    .footer-logo img {
+      width: 200px;
+    }
+
+    .footer-sub {
+      font-size: 13px;
+      color: #777;
+    }
+
+    .footer-info p {
+      font-size: 16px;
+      color: #000;
+      font-weight: 500 !important;
+    }
+
+    .social-links {
+      font-size: 16px;
+      color: #000;
+      margin-top: 2.5rem;
+      font-weight: 500 !important;
+    }
+
+    .footer-contact p {
+      font-size: 28px;
+      margin: 0 0 8px;
+    }
+
+    .footer-contact p strong {
+      font-weight: 600 !important;
+    }
+
+    .site-footer hr {
+      margin: 40px 0 20px;
+      opacity: 0.1;
+    }
+
+    .copyright {
+      text-align: center;
+      font-size: 14px;
+      color: #888;
+    }
+
+    .copyright b {
+      color: #000 !important;
+      font-weight: 500 !important;
+    }
+
+    .scroll-section {
+      margin-bottom: 5rem;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .scroll-inner {
+      position: relative;
+      height: 100vh;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .slide.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .content {
+      width: 50%;
+      background: #000;
+      color: #fff;
+      padding: 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .image {
+      width: 50%;
+    }
+
+    .image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .index {
+      font-size: 65px;
+      opacity: 0.3;
+    }
+
+    .btn {
+      background: #fff;
+      color: #000;
+      padding: 8px 10px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 3;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      transition: 0.3s;
+      margin-left: auto;
+      font-size: 12px;
+      border: none;
+    }
+
+    .btn span {
+      background: #000;
+      color: #fff;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: rotateZ(320deg);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .scroll-top {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .content h2 {
+      padding-bottom: 2rem;
+    }
+
+    .content h3 {
+      font-size: 14px;
+    }
+
+    .content h3::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      background: #ececec;
+      margin-top: 12px;
+    }
+
+    .scroll-right-text {
+      width: 50%;
+    }
+
+    .content p {
+      width: 60%;
+      text-align: justify;
+      display: flex;
+      margin-left: auto;
+    }
+
+    .content p a {
+      color: #fff;
+    }
+
+    .content ul {
+      margin-left: auto;
+    }
+
+    .get-in-touch {
+      background-color: #000;
+      color: #fff;
+    }
+
+    .get-in-touch:hover {
+      background-color: #000;
+      color: #fff;
+    }
+
+    @media (max-width: 1400px) {
+      .custom-container {
+        width: 95%;
+        margin: auto;
+      }
+
+      .content {
+        padding: 100px 100px 100px 0px;
+      }
+
+      .about-card {
+        height: 300px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .navbar-toggler-icon {
+        width: 28px;
+        height: 28px;
+        background-image: url("./images/menu.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: 0.3s ease;
+      }
+
+      /* when menu is open */
+      .navbar-toggler.open .navbar-toggler-icon {
+        background-image: url("./images/close.png");
+        position: absolute;
+        z-index: 99999;
+        height: 20px;
+      }
+
+      .navbar-toggler:hover,
+      .navbar-toggler:focus,
+      .navbar-toggler:focus-visible,
+      .navbar-toggler {
+        box-shadow: none;
+        outline: none;
+        border: none;
+      }
+
+      /* collapse container becomes sidebar */
+      #navbarNav {
+        position: fixed;
+        top: 0;
+        left: -280px;
+        width: 100%;
+        height: 100vh;
+
+        background: #ffffff;
+        padding: 90px 25px 30px;
+
+        transition: all 0.35s ease;
+        z-index: 9999;
+
+        box-shadow: 15px 0 40px rgba(0, 0, 0, 0.2);
+      }
+
+      /* when menu opens */
+      #navbarNav.show {
+        left: 0;
+      }
+
+      /* vertical menu */
+      #navbarNav .navbar-nav {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      /* links */
+      #navbarNav .nav-link {
+        color: #000 !important;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 10px 5px;
+      }
+
+      .hero-para {
+        position: unset !important;
+      }
+
+      .hero-title {
+        font-size: 50px;
+        line-height: 1.2;
+      }
+
+      .hero-text p {
+        font-size: 20px;
+        line-height: 1.2;
+        width: 100%;
+      }
+
+      .about-section-container {
+        max-width: 95%;
+      }
+
+      .about-card {
+        height: 250px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 50px !important;
+        line-height: 1.2;
+      }
+
+      .hero-para {
+        position: unset !important;
+      }
+
+      .hero-text p {
+        font-size: 20px;
+        letter-spacing: 1px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .hero-separator {
+        margin: 20px auto 30px auto;
+      }
+
+      .view-services-btn {
+        margin-top: 2rem !important;
+        margin: auto;
+        font-size: 14px;
+      }
+
+      .content p {
+        width: 100% !important;
+        text-align: justify;
+        display: flex;
+        margin-left: auto;
+        font-size: 14px;
+        margin-top: 1rem;
+      }
+
+      .slide {
+        display: block;
+      }
+
+      .content {
+        width: 100% !important;
+        padding: 30px 20px !important;
+        display: block !important;
+        flex-direction: unset !important;
+
+      }
+
+      .image {
+        width: 100%;
+      }
+
+      .btn span {
+        width: 25px;
+        height: 25px;
+      }
+
+      .btn {
+        padding: 4px 10px;
+        gap: 4px;
+      }
+
+      .scroll-top {
+        gap: 1rem !important;
+        display: block;
+      }
+
+      .content h2 {
+        padding-bottom: 0rem;
+        margin-bottom: 0;
+      }
+
+      .index {
+        font-size: 55px;
+      }
+
+      .scroll-right-text {
+        width: 100%;
+      }
+
+      .contact-box {
+        padding: 1.5rem !important;
+      }
+
+      .contact-bg {
+        background-size: cover !important;
+      }
+
+      .custom-container {
+        width: 100%;
+      }
+
+      .contact-bottom p {
+        font-size: 12px;
+      }
+
+      .contact-bottom {
+        margin-top: 30px;
+        gap: 0px;
+      }
+
+      .footer-logo img {
+        margin: auto;
+        justify-content: center;
+        display: flex;
+      }
+
+      .site-footer {
+        padding: 40px 0 0px;
+        margin-top: 4rem;
+      }
+
+      .footer-info p {
+        text-align: center;
+      }
+
+      .social-links {
+        text-align: center;
+      }
+
+      .footer-contact p {
+        text-align: center;
+      }
+
+      .site-footer hr {
+        margin: 0px 0 20px;
+      }
+
+    }
+
+    @media (max-width: 576px) {
+      .hero-section {
+        min-height: 55vh;
+        height: 100%;
+      }
+
+      .hero-title {
+        font-size: 25px !important;
+        line-height: 1.2;
+      }
+
+      .hero-separator {
+        margin: 20px auto 20px auto;
+      }
+
+      .hero-text p {
+        font-size: 14px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .view-services-btn {
+        padding: 5px 10px;
+        gap: 4px;
+        font-size: 12px;
+        margin: auto;
+      }
+
+      .view-services-btn span {
+        width: 25px;
+        height: 25px;
+      }
+
+      .hero-para {
+        position: unset;
+      }
+
+      .custom-navbar {
+        padding: 2px 20px;
+      }
+
+      .logo_img img {
+        width: 78px;
+      }
+
+      .main-hero-row {
+        margin-top: 3rem;
+      }
+
+      .about-section {
+        padding: 50px 0;
+      }
+
+      .about-card {
+        height: auto;
+      }
+
+      .card-no {
+        position: unset;
+      }
+
+      .about-title {
+        font-size: 24px;
+        text-align: center;
+        width: 100%;
+      }
+
+      .text-center-align {
+        text-align: center;
+      }
+
+      .content p {
+        width: 100% !important;
+        text-align: justify;
+        display: flex;
+        margin-left: auto;
+        font-size: 14px;
+        margin-top: 1rem;
+      }
+
+      .contact-box {
+        padding: 1.5rem !important;
+      }
+
+      .contact-form .form-control {
+        padding: 10px 15px;
+        font-size: 12px;
+      }
+
+      .contact-bg {
+        background-size: cover !important;
+      }
+
+      .custom-container {
+        width: 100%;
+      }
+
+      .contact-bottom p {
+        font-size: 11px;
+      }
+
+      .send-btn {
+        padding: 5px 15px;
+        gap: 5px;
+        font-size: 12px;
+      }
+
+      .send-btn span {
+        width: 22px;
+        height: 22px;
+      }
+
+      .contact-bottom {
+        margin-top: 15px;
+        gap: 0px;
+      }
+
+      .footer-logo img {
+        width: 160px;
+        margin: auto;
+        justify-content: center;
+        display: flex;
+      }
+
+      .site-footer {
+        padding: 30px 0 0px;
+        margin-top: 2rem;
+      }
+
+      .footer-info p {
+        font-size: 14px;
+        text-align: center;
+      }
+
+      .social-links {
+        font-size: 14px;
+        margin-top: 1rem;
+        text-align: center;
+      }
+
+      .footer-contact p {
+        font-size: 22px;
+        margin: 0px 0 3px;
+        text-align: center;
+      }
+
+      .site-footer hr {
+        margin: 0px 0 20px;
+      }
+
+      .footer-contact,
+      .footer-info {
+        margin-bottom: 1rem !important;
+      }
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    /* @media (max-width: 768px) {
+  .contact-box {
+    padding: 50px 30px;
+  }
+
+  .contact-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contact-title {
+    font-size: 28px;
+  }
+
+} */
+
+    /* ================= RESPONSIVE ================= */
+    /* 
+@media (max-width: 991px) {
+
+  .about-title {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 575px) {
+
+  .about-section {
+    padding: 70px 20px;
+  }
+
+  .about-title {
+    font-size: 26px;
+  }
+
+} */
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="main-header">
+    <div class="container-fluid custom-container">
+
+      <nav class="navbar navbar-expand-lg custom-navbar">
+        <div class="container-fluid">
+
+          <!-- Logo -->
+          <a class="navbar-brand fw-bold logo_img" href="#">
+            <img src="./images/znsg-logo.png" />
+          </a>
+
+          <span class="nav-divider"></span>
+
+          <!-- Toggle -->
+          <!-- <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button> -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Menu -->
+          <div class="collapse navbar-collapse justify-content-start" id="navbarNav">
+            <ul class="navbar-nav gap-4">
+              <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="#about">Who We Are</a></li>
+              <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+              <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Right Info -->
+          <div class="header-right d-none d-lg-flex align-items-center">
+            <span class="phone">
+              Call Us:
+              <strong>+92 34552287 | +92 34552227</strong>
+            </span>
+
+            <a href="#" class="btn rounded-pill ms-3 px-4 get-in-touch">
+              Get In Touch
+            </a>
+          </div>
+
+        </div>
+      </nav>
+
+    </div>
+  </header>
+
+  <section class="main-section">
+    <!-- ================= HERO SECTION ================= -->
+    <section class="hero-section" id="home">
+      <div class="overlay"></div>
+
+      <div class="container h-100">
+        <div class="row h-100 align-items-center main-hero-row">
+
+          <div class="col-lg-12 mx-auto text-center">
+
+            <h1 class="hero-title">
+              Reliable Warehousing &<br>
+              Logistics Solutions <br>
+              Across Pakistan
+            </h1>
+            <div class="hero-para">
+              <div class="hero-separator"></div>
+              <div class="row justify-content-start mt-4 center-align">
+                <div class="col-lg-6 text-start hero-text">
+                  <p>
+                    We provide secure warehousing, advanced cold storage,
+                    and efficient transportation services designed to keep
+                    your supply chain moving smoothly.
+                  </p>
+                </div>
+                <div class="col-lg-6 text-end">
+                  <!-- Floating Button -->
+                  <button class="view-services-btn">
+                    View Services
+                    <span>➜</span>
+                  </button>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+    </section>
+    <section class="about-wrapper" id="about">
+      <div class="about-section">
+        <div class="container about-section-container">
+
+          <div class="row">
+            <div class="col-12 col-lg-4 text-center-align">
+              <!-- small pill -->
+              <div class="about-badge">
+                Who We Are
+              </div>
+            </div>
+            <div class="col-12 col-lg-8">
+              <!-- heading -->
+              <h2 class="about-title">
+                Delivering Reliable Warehousing <br>
+                and Logistics Solutions <br>
+                Nationwide
+              </h2>
+            </div>
+          </div>
+
+          <div class="row align-items-center mt-5">
+
+            <!-- LEFT IMAGE -->
+            <div class="col-md-6 col-lg-6 mb-4 mb-lg-0">
+              <div class="about-image">
+                <img src="./images/Group 7.png" alt="">
+              </div>
+            </div>
+
+            <!-- RIGHT CONTENT -->
+            <div class="col-md-6 col-lg-6">
+
+              <div class="row g-4">
+
+                <!-- CARD 1 -->
+                <div class="col-12 col-md-6">
+                  <div class="about-card">
+                    <span class="card-label">REACH</span>
+                    <div class="card-no">
+                      <h3>32<span>+</span></h3>
+                      <p>Offices nationwide</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- CARD 2 -->
+                <div class="col-12 col-md-6">
+                  <div class="about-card">
+                    <span class="card-label">EXPERTISE</span>
+                    <div class="card-no">
+                      <h3>356<span>+</span></h3>
+                      <p>Employees</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- CARD 3 -->
+                <div class="col-12 col-md-6">
+                  <div class="about-card">
+                    <span class="card-label">OUR IMPACT</span>
+                    <div class="card-no">
+                      <h3>258<span>+</span></h3>
+                      <p>Offices worldwide</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- CARD 4 IMAGE -->
+                <div class="col-12 col-md-6">
+                  <div class="about-image-sm">
+                    <img src="./images/adrian-sulyok-sczNLg6rrhQ-unsplash.png" alt="">
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="scroll-section" id="services">
+      <div class="scroll-inner">
+
+        <!-- SLIDE 1 -->
+        <div class="slide active">
+          <div class="content">
+            <div class="scroll-top">
+              <div class="scroll-left-text">
+                <span class="index">01</span>
+              </div>
+              <div class="scroll-right-text">
+                <h3><i class="fa fa-map-marker me-2" aria-hidden="true"></i>International & Local</h3>
+                <h2>Sanaulla</h2>
+              </div>
+            </div>
+            <p>
+              Sanaulla ReTAIL established in 1958 has a tradition of great customer service, quality product and style
+              which provides an elegant taste of creatively designed home textile with a range of vibrant colors,
+              patterns, embroidery styles and textures.
+            </p>
+            <p>
+              <a href="https://sanaullastore.com/">www.sanaullastore.com</a>
+            </p>
+            <button class="btn">
+              See More
+              <span>➜</span>
+            </button>
+          </div>
+          <div class="image">
+            <img src="images/Mask Group -1.png" alt="">
+          </div>
+        </div>
+
+        <!-- SLIDE 2 -->
+        <div class="slide">
+          <div class="content">
+            <div class="scroll-top">
+              <div class="scroll-left-text">
+                <span class="index">02</span>
+              </div>
+              <div class="scroll-right-text">
+                <h3><i class="fa fa-map-marker me-2" aria-hidden="true"></i>International & Local</h3>
+                <h2>Monsalwa</h2>
+              </div>
+            </div>
+            <p>
+              Bring fresh and convenient meal options to every household through high-quality frozen food products.
+              Mon Salwa brings taste to life. We're bringing the gourmet experience straight to your kitchen!
+            </p>
+            <p>
+              <a href="https://monsalwa.com/">https://monsalwa.com/</a>
+            </p>
+            <button class="btn">
+              See More
+              <span>➜</span>
+            </button>
+          </div>
+          <div class="image">
+            <img src="images/Mask Group -2.png" alt="">
+          </div>
+        </div>
+
+        <!-- SLIDE 3 -->
+        <div class="slide">
+          <div class="content">
+            <div class="scroll-top">
+              <div class="scroll-left-text">
+                <span class="index">03</span>
+              </div>
+              <div class="scroll-right-text">
+                <h3><i class="fa fa-map-marker me-2" aria-hidden="true"></i>International & Local</h3>
+                <h2>Glaciers</h2>
+              </div>
+            </div>
+            <p><b>Pakistan's Largest Coldstorage facility</b></p>
+            <ul>
+              <li>
+                1st BRC Certified 3PL Warehouse in Pakistan
+              </li>
+              <li>
+                Largest Multi Temperature Control Warehouse
+              </li>
+              <li>
+                12000 Pallet Positions
+              </li>
+            </ul>
+            <p>
+              We have been in the cold storage business for the past 8 years. This means that we have a team that is
+              dependable, systems and protocols that are robust, and the technical expertise to provide solutions that
+              are safe, economical, and reliable.
+            </p>
+            <p><a href="https://www.connectlogistics.pk/">https://www.connectlogistics.pk/</a></p>
+            <button class="btn">
+              See More
+              <span>➜</span>
+            </button>
+          </div>
+          <div class="image">
+            <img src="images/Mask Group -3.png" alt="">
+          </div>
+        </div>
+
+        <!-- SLIDE 3 -->
+        <div class="slide">
+          <div class="content">
+            <div class="scroll-top">
+              <div class="scroll-left-text">
+                <span class="index">04</span>
+              </div>
+              <div class="scroll-right-text">
+                <h3><i class="fa fa-map-marker me-2" aria-hidden="true"></i>International & Local</h3>
+                <h2>Connect Logistics</h2>
+              </div>
+            </div>
+            <p>
+              COMMITED TO DELIVER FOR OUR VALUED CUSTOMERS, THE HIGHEST QUALITY SERVICES & CUSTOMIZED SOLUTIONS AS FUEL
+              FOR THEIR BUSINESS GROWTH
+            </p>
+            <p><a href="https://www.connectlogistics.pk/">https://www.connectlogistics.pk/</a></p>
+            <button class="btn">
+              See More
+              <span>➜</span>
+            </button>
+          </div>
+          <div class="image">
+            <img src="images/Mask Group -3.png" alt="">
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- ================= CONTACT SECTION ================= -->
+    <section class="contact-section" id="contact">
+
+      <div class="container-fluid custom-container">
+        <div class="contact-bg">
+          <div class="contact-overlay">
+            <div class="container">
+
+              <div class="contact-box">
+
+                <span class="contact-badge">Quick inquiry</span>
+
+                <h2 class="contact-title">Contact Form</h2>
+
+                <form class="contact-form">
+
+                  <div class="row g-4">
+                    <div class="col-md-6">
+                      <input type="text" class="form-control" placeholder="Name">
+                    </div>
+
+                    <div class="col-md-6">
+                      <input type="email" class="form-control" placeholder="Email">
+                    </div>
+
+                    <div class="col-12">
+                      <textarea class="form-control" rows="4" placeholder="Message"></textarea>
+                    </div>
+                  </div>
+
+                  <div class="contact-bottom">
+                    <p>
+                      We're excited to connect with you! <br>
+                      Required fields are marked *
+                    </p>
+
+                    <button type="submit" class="send-btn">
+                      Send
+                      <span>➜</span>
+                    </button>
+                  </div>
+
+                </form>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+
+    <div class="container">
+
+      <div class="row center-align">
+
+        <!-- Logo -->
+        <div class="col-lg-4 col-md-4 mb-4">
+          <div class="footer-logo"><img src="./images/znsg-full-logo.png" /></div>
+        </div>
+
+        <!-- Address -->
+        <div class="col-lg-4 col-md-4 mb-4 footer-info">
+          <p>
+            138-D, P.E.C.H.S, Block 2, Main <br>
+            Tariq Road, Karachi
+          </p>
+
+          <div class="social-links">
+            Facebook · Instagram · Youtube · Twitter
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="col-lg-4 col-md-4 mb-4 footer-contact">
+          <p><strong>+92 34552287</strong></p>
+          <p><strong>+92 34552227</strong></p>
+          <p><strong>info@znsg.pk</strong></p>
+        </div>
+
+      </div>
+
+      <hr>
+
+      <p class="copyright">
+        © 2026 <b> Zaki Nawab & Sons Group</b>. All Rights Reserved.
+      </p>
+
+    </div>
+
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    const slides = gsap.utils.toArray(".slide");
+
+    slides.forEach((slide, i) => {
+      ScrollTrigger.create({
+        trigger: ".scroll-section",
+        start: () => `top+=${i * window.innerHeight} top`,
+        end: () => `top+=${(i + 1) * window.innerHeight} top`,
+        onEnter: () => setActive(i),
+        onEnterBack: () => setActive(i)
+      });
+    });
+
+    function setActive(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+      });
+    }
+
+    // Pin the whole section
+    ScrollTrigger.create({
+      trigger: ".scroll-section",
+      start: "top top",
+      end: () => `+=${slides.length * window.innerHeight}`,
+      pin: true,
+      scrub: true
+    });
+  </script>
+  <script>
+    const toggler = document.querySelector(".navbar-toggler");
+    const navbar = document.getElementById("navbarNav");
+
+    // instant icon switch
+    toggler.addEventListener("click", () => {
+      toggler.classList.toggle("open");
+    });
+
+    // safety reset when fully closed
+    navbar.addEventListener("hidden.bs.collapse", () => {
+      toggler.classList.remove("open");
+    });
+  </script>
+
+
+
+
+</body>
+
+</html>
